@@ -1,6 +1,8 @@
 package com.abc.hublearning.web.controller;
 
+import com.abc.hublearning.persistence.service.UserService;
 import com.abc.hublearning.web.dto.UserDto;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,17 +13,19 @@ import java.util.Optional;
 @RequestMapping("/users")
 public class UserController {
 
+    @Autowired
+    UserService userService;
+
     @GetMapping
     public ResponseEntity<List<UserDto>> getActiveUsers(){
         //userService.getActiveUsers();
         return null;
     }
 
-    @GetMapping("/")
-    public ResponseEntity<UserDto>getUserByEmail( @RequestParam("email") String email){
-       // UserDto userDto = userService.getUserByEmail();
-       // return ResponseEntity.ok(userDto);
-        return null;
+    @GetMapping("/aaa")
+    public UserDto getUserByEmail( @RequestParam("email") String email){
+        System.out.println("AM INRAT IN CONTROLLER");
+            return userService.getUserByEmail(email);
     }
 
 
