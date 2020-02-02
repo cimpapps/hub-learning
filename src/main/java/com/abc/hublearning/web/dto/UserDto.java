@@ -1,5 +1,7 @@
 package com.abc.hublearning.web.dto;
 
+import com.abc.hublearning.enums.UserType;
+
 public class UserDto {
 
     private Long id;
@@ -7,13 +9,13 @@ public class UserDto {
     private String email;
     private String name;
     private Integer role;
-    private String typeOfUser;
+    private UserType typeOfUser;
 
-    public String getTypeOfUser() {
+    public UserType getTypeOfUser() {
         return typeOfUser;
     }
 
-    public void setTypeOfUser(String typeOfUser) {
+    public void setTypeOfUser(UserType typeOfUser) {
         this.typeOfUser = typeOfUser;
     }
 
