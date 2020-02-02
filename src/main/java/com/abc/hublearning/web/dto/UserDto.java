@@ -2,6 +2,8 @@ package com.abc.hublearning.web.dto;
 
 import com.abc.hublearning.enums.UserType;
 
+import java.util.Objects;
+
 public class UserDto {
 
     private Long id;
@@ -57,5 +59,36 @@ public class UserDto {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        UserDto userDto = (UserDto) o;
+        return id.equals(userDto.id) &&
+                username.equals(userDto.username) &&
+                email.equals(userDto.email) &&
+                name.equals(userDto.name) &&
+                role.equals(userDto.role) &&
+                typeOfUser == userDto.typeOfUser;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, username, email, name, role, typeOfUser);
+    }
+
+    @Override
+    public String toString() {
+        return "UserDto{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", email='" + email + '\'' +
+                ", name='" + name + '\'' +
+                ", role=" + role +
+                ", typeOfUser=" + typeOfUser +
+                '}';
     }
 }
